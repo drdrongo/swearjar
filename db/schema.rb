@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_132952) do
+ActiveRecord::Schema.define(version: 2020_09_10_134908) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -20,15 +20,8 @@ ActiveRecord::Schema.define(version: 2020_09_10_132952) do
     t.decimal "amount"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-  end
-
-  create_table "jar_coins", force: :cascade do |t|
-    t.bigint "coins_id", null: false
-    t.bigint "jars_id", null: false
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["coins_id"], name: "index_jar_coins_on_coins_id"
-    t.index ["jars_id"], name: "index_jar_coins_on_jars_id"
+    t.bigint "jar_id", null: false
+    t.index ["jar_id"], name: "index_coins_on_jar_id"
   end
 
   create_table "jars", force: :cascade do |t|
@@ -53,7 +46,6 @@ ActiveRecord::Schema.define(version: 2020_09_10_132952) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
-  add_foreign_key "jar_coins", "coins", column: "coins_id"
-  add_foreign_key "jar_coins", "jars", column: "jars_id"
+  add_foreign_key "coins", "jars"
   add_foreign_key "jars", "users"
 end
