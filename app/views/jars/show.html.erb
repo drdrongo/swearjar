@@ -2,4 +2,8 @@
   <h1>hello, i'm your jar.</h1>
   <%= @jar.goal %>
   <%= @jar.current_amount %>/<%= @jar.end_amount %>
+
+  <% @coins.each do |coin| %>
+    <p><%= "#{coin.amount} #{coin.currency}" %></p>
+  <% end %> 
 </div>

@@ -14,15 +14,19 @@ User.create(
   password: 'secret'
 )
 
+puts 'creating a jar...'
 Jar.create(
   current_amount: 200,
   end_amount: 2000,
-  goal: 'Take Erica on a Date'
+  goal: 'Take Erica on a Date',
+  user: User.first
 )
 
 3.times do
-  Coin.create(
+  coin = Coin.new(
     amount: 100,
-    currency: 'Yen'
+    currency: 'Yen',
   )
+  coin.jar = Jar.first
+  coin.save
 end
