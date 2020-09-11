@@ -7,6 +7,17 @@ body {
   padding: 0;
   width: 100%;
 }
+
+.jar-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+  padding-top: 120px;
+}
+
 .jar {
   background-color: #D3ECEC;
   height: 400px;

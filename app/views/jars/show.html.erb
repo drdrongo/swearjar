@@ -1,19 +1,21 @@
-<div class="jar">
-  <div class="jar jar-inner">
-    <div class="jar-shine"></div>
-    <div class="jar-neck"></div>
-    <div class="jar-neck-inner"></div>
-    <div class="jar-lip"></div>
-  </div>
-  <div class="label">
-    <h6><%= @jar.goal %></h6>
-    <h5><%= @jar.current_amount.to_int %>/<%= @jar.end_amount.to_int %></h5>
+<div class="jar-container">
+  <div class="jar">
+    <div class="jar jar-inner">
+      <div class="jar-shine"></div>
+      <div class="jar-neck"></div>
+      <div class="jar-neck-inner"></div>
+      <div class="jar-lip"></div>
+    </div>
+    <div class="label">
+      <h6><%= @jar.goal %></h6>
+      <h5><%= @jar.current_amount.to_int %>/<%= @jar.end_amount.to_int %></h5>
+    </div>
   </div>
 </div>
 
 <style>
   .coin-banner {
-    margin-top: 80px;
+    margin-top: 30px;
     width: 100%;
     background-color: lightpink;
     padding: 16px 40px;
