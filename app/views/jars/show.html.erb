@@ -1,14 +1,3 @@
-<div class="container-fluid">
-  <h1>hello, i'm your jar.</h1>
-  <%= @jar.goal %>
-  <%= @jar.current_amount %>/<%= @jar.end_amount %>
-
-  <% @coins.each do |coin| %>
-    <p><%= "#{coin.amount} #{coin.currency}" %></p>
-  <% end %> 
-</div>
-
-
 <div class="jar">
   <div class="jar jar-inner">
     <div class="jar-shine"></div>
@@ -16,5 +5,47 @@
     <div class="jar-neck-inner"></div>
     <div class="jar-lip"></div>
   </div>
-  <div class="label"></div>
+  <div class="label">
+    <%= @jar.goal %>
+    <%= @jar.current_amount %>/<%= @jar.end_amount %>
+  </div>
+</div>
+
+<style>
+  .coin-banner {
+    height: 30%;
+    width: 100%;
+    background-color: lightpink;
+    padding: 16px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0;
+  }
+
+  .coins {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .coin {
+    background-color: silver;
+    border-radius: 50%;
+    height: 80px;
+    width: 80px;
+  }
+</style>
+
+<div class="coin-banner">
+
+
+  <div class="coins">
+    <% @coins.each do |coin| %>
+      <div class="coin">
+        <span><%= coin.amount %></span>
+      </div>
+    <% end %> 
+  </div>
 </div>
