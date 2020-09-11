@@ -1,9 +1,62 @@
-<div class="container-fluid">
-  <h1>hello, i'm your jar.</h1>
-  <%= @jar.goal %>
-  <%= @jar.current_amount %>/<%= @jar.end_amount %>
+<div class="jar">
+  <div class="jar jar-inner">
+    <div class="jar-shine"></div>
+    <div class="jar-neck"></div>
+    <div class="jar-neck-inner"></div>
+    <div class="jar-lip"></div>
+  </div>
+  <div class="label">
+    <h6><%= @jar.goal %></h6>
+    <h5><%= @jar.current_amount.to_int %>/<%= @jar.end_amount.to_int %></h5>
+  </div>
+</div>
 
-  <% @coins.each do |coin| %>
-    <p><%= "#{coin.amount} #{coin.currency}" %></p>
-  <% end %> 
+<style>
+  .coin-banner {
+    margin-top: 80px;
+    width: 100%;
+    background-color: lightpink;
+    padding: 16px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-grow: 0;
+  }
+
+  .coins {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+
+  .coin {
+    background-color: silver;
+    border-radius: 50%;
+    height: 100px;
+    width: 100px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+  }
+
+  .coin-amount {
+    color: rgba(0, 0, 0, 0.6);
+    font-family: helvetica;
+    font-weight: bold;
+    font-size: 40px;
+  }
+</style>
+
+<div class="coin-banner">
+
+
+  <div class="coins">
+    <% @coins.each do |coin| %>
+      <div class="coin">
+        <span class="coin-amount"><%= coin.amount.to_int %></span>
+      </div>
+    <% end %> 
+  </div>
 </div>

@@ -1,0 +1,86 @@
+body {
+  background-color: #A7D8D8;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+}
+.jar {
+  background-color: #D3ECEC;
+  height: 400px;
+  width: 300px;
+  position: relative;
+  border-radius: 80px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.jar-inner {
+  background-color: #E9F6F6;
+  height: 97%;
+  width: 94%;
+}
+
+.jar-neck {
+  background-color: #D3ECEC;
+  height: 12%;
+  width: 50%;
+  position: absolute;
+  top: -50px;
+  left: 70px;
+  z-index: -1;
+}
+
+.jar-neck-inner {
+  background-color: #E9F6F6;
+  height: 50px;
+  width: 43%;
+  position: absolute;
+  top: -50px;
+  left: 80px;
+}
+
+.jar-lip {
+  background-color: #D3ECEC;
+  height: 10px;
+  width: 57%;
+  border-radius: 8px;
+  position: absolute;
+  top: -60px;
+  left: 60px;
+}
+
+.label {
+  width: 100%;
+  height: 30%;
+  background-color: #B8926C;
+  position: absolute;
+  top: 35%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-weight: bold;
+    font-size: 28px;
+    font-family: helvetica;
+    margin: 0;
+    color: rgba(0, 0, 0, 0.6);
+  }
+}
+
+.jar-shine {
+  clip-path: polygon(0% 0%, 23% 0, 40% 2%, 58% 5%, 74% 10%, 86% 18%, 93% 29%, 97% 45%, 99% 65%, 100% 83%, 99% 100%, 93% 76%, 89% 63%, 85% 52%, 80% 40%, 71% 30%, 60% 20%, 46% 13%, 34% 8%, 19% 4%);
+  background-color: white;
+  width: 10%;
+  height: 10%;
+  z-index: 99;
+  position: absolute;
+  right: 10%;
+  top: 5%;
+}
