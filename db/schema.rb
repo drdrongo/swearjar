@@ -10,14 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_134908) do
+ActiveRecord::Schema.define(version: 2020_09_13_062858) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "coins", force: :cascade do |t|
     t.string "currency"
-    t.decimal "amount"
+    t.integer "value"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "jar_id", null: false
@@ -25,8 +25,8 @@ ActiveRecord::Schema.define(version: 2020_09_10_134908) do
   end
 
   create_table "jars", force: :cascade do |t|
-    t.decimal "current_amount", default: "0.0", null: false
-    t.decimal "end_amount", default: "100.0", null: false
+    t.integer "current_amount", default: 0, null: false
+    t.integer "end_amount", default: 100, null: false
     t.string "goal", default: "", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
