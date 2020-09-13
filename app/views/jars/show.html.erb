@@ -8,7 +8,7 @@
     </div>
     <div class="label">
       <h6><%= @jar.goal %></h6>
-      <h5><%= @jar.current_amount.to_int %> / <%= @jar.end_amount.to_int %></h5>
+      <h5><%= @jar.current_amount %> / <%= @jar.end_amount %></h5>
     </div>
   </div>
 </div>
@@ -41,6 +41,7 @@
     align-items: center;
     justify-content: center;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    border-style: none;
   }
 
   .coin-amount {
@@ -49,6 +50,18 @@
     font-weight: bold;
     font-size: 40px;
   }
+
+  .coin:focus {
+    outline: none;
+    box-shadow: 0px -3px 2px rgba(0, 0, 0, 0.5);
+    transform: translateY(1px);
+  }
+
+  .coin:active {
+        box-shadow: 0px -3px 2px rgba(0, 0, 0, 0.5);
+    transform: translateY(1px);
+
+  }
 </style>
 
 <div class="coin-banner">
@@ -56,9 +69,10 @@
 
   <div class="coins">
     <% @coins.each do |coin| %>
-      <div class="coin">
-        <span class="coin-amount"><%= coin.value.to_int %></span>
-      </div>
+      <%= form_for @jar, remote: true do |f| %>
+        <%= f.hidden_field :coin_value, value: coin.value %> 
+        <%= f.submit "#{coin.value}", class: "coin coin-amount"  %>
+      <% end %>
     <% end %> 
   </div>
 </div>
