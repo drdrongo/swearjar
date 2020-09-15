@@ -1,3 +1,14 @@
-<% @jars.each do |jar| %>
-  <%= link_to jar.goal, jar_path(jar) %>
-<% end %>
+
+<div class="jar-card-container">
+  <% @jars.each do |jar| %>
+    <%= link_to jar_path(jar) do %>
+      <div class="card">
+        <span><%= jar.goal %></span>
+        <div class="stacked-items" style="display: flex; flex-direction: column;">
+          <span><%= jar.current_amount %></span>
+          <span><%= jar.end_amount %></span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+</div>
