@@ -1,5 +1,7 @@
-<%= form_for @jar do |f| %>
-  <%= f.text_field :goal %>
-  <%= number_field(@jar, :end_amount) %>
-  <%= f.submit "Start swear jar" %>
-<% end %>
+<div class="container">
+  <%= simple_form_for @jar do |f| %>
+    <%= f.input :goal, input_html: { maxlength: 25 } %>
+    <%= f.input :end_amount, input_html: { step: 100 } %>
+    <%= f.button :submit, "Begin Jar", class: "btn btn-success w-100" %>
+  <% end %>
+</div>
