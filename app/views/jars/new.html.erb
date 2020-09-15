@@ -1,0 +1,5 @@
+<%= form_for @jar do |f| %>
+  <%= f.text_field :goal %>
+  <%= number_field(@jar, :end_amount) %>
+  <%= f.submit "Start swear jar" %>
+<% end %>

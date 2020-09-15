@@ -13,4 +13,14 @@ class JarsController < ApplicationController
     @jar.increment!(:current_amount, params[:jar][:coin_value].to_i)
     redirect_to jar_path(@jar)
   end
+
+  def new
+    @jar = Jar.new
+  end
+
+  def create
+    @jar = Jar.new(
+      
+    )
+  end
 end
