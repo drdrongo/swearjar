@@ -1,64 +1,27 @@
 <div class="jar-container">
   <div class="jar">
+    <div class="jar-lip"></div>
+    <div class="jar-neck"></div>
+    <div class="jar-neck-inner"></div>
     <div class="jar jar-inner">
       <div class="jar-shine"></div>
-      <div class="jar-neck"></div>
-      <div class="jar-neck-inner"></div>
-      <div class="jar-lip"></div>
+      <div class="wave"></div>
+      <div class="jar-fill" style="height: <%= "#{(@jar.current_amount/@jar.end_amount.to_f) * 100}%" %>;">
     </div>
     <div class="label">
       <h6><%= @jar.goal %></h6>
-      <h5><%= @jar.current_amount.to_int %> / <%= @jar.end_amount.to_int %></h5>
+      <h5><%= @jar.current_amount %> / <%= @jar.end_amount %></h5>
     </div>
   </div>
 </div>
 
-<style>
-  .coin-banner {
-    margin-top: 30px;
-    width: 100%;
-    background-color: lightpink;
-    padding: 16px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 0;
-  }
-
-  .coins {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .coin {
-    background-color: silver;
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
-  }
-
-  .coin-amount {
-    color: rgba(0, 0, 0, 0.6);
-    font-family: helvetica;
-    font-weight: bold;
-    font-size: 40px;
-  }
-</style>
-
 <div class="coin-banner">
-
-
   <div class="coins">
     <% @coins.each do |coin| %>
-      <div class="coin">
-        <span class="coin-amount"><%= coin.value.to_int %></span>
-      </div>
+      <%= form_for @jar, remote: true do |f| %>
+        <%= f.hidden_field :coin_value, value: coin.value %> 
+        <%= f.submit "#{coin.value}", class: "coin coin-amount"  %>
+      <% end %>
     <% end %> 
   </div>
 </div>

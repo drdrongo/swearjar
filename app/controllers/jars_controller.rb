@@ -10,7 +10,7 @@ class JarsController < ApplicationController
 
   def update
     @jar = Jar.find(params[:id])
-    @coin = Coin.find(params[:coin_id])
-    @jar.increment!(:current_amount, @coin.value)
+    @jar.increment!(:current_amount, params[:jar][:coin_value].to_i)
+    redirect_to jar_path(@jar)
   end
 end

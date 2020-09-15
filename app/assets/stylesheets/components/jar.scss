@@ -17,6 +17,38 @@ body {
   padding-top: 120px;
 }
 
+.jar-lip {
+  background-color: #D3ECEC;
+  height: 10px;
+  width: 57%;
+  border-radius: 8px;
+  position: absolute;
+  top: -53px;
+  left: 65px;
+}
+
+.jar-neck {
+  background-color: #D3ECEC;
+  height: 12%;
+  width: 50%;
+  position: absolute;
+  top: -43px;
+  left: 75px;
+  z-index: -1;
+}
+
+.jar-neck-inner {
+  background-color: #E9F6F6;
+  height: 50px;
+  width: 43%;
+  position: absolute;
+  top: -43px;
+  left: 85px;
+}
+
+
+
+
 .jar {
   background-color: #D3ECEC;
   height: 400px;
@@ -33,41 +65,21 @@ body {
   background-color: #E9F6F6;
   height: 97%;
   width: 94%;
+  overflow: hidden;
 }
 
-.jar-neck {
-  background-color: #D3ECEC;
-  height: 12%;
-  width: 50%;
+.jar-fill {
+  background: linear-gradient(rgba(14, 95, 120, 1), rgba(14, 95, 120, 0.8), rgba(14, 95, 120, 0.7));
   position: absolute;
-  top: -50px;
-  left: 70px;
-  z-index: -1;
-}
-
-.jar-neck-inner {
-  background-color: #E9F6F6;
-  height: 50px;
-  width: 43%;
-  position: absolute;
-  top: -50px;
-  left: 80px;
-}
-
-.jar-lip {
-  background-color: #D3ECEC;
-  height: 10px;
-  width: 57%;
-  border-radius: 8px;
-  position: absolute;
-  top: -60px;
-  left: 60px;
+  bottom: 0;
+  left: 0;
+  width: 100%;
 }
 
 .label {
   width: 100%;
   height: 30%;
-  background-color: #B8926C;
+  background-color: rgba(222, 184, 135, 0.7);
   position: absolute;
   top: 35%;
   display: flex;
@@ -93,4 +105,35 @@ body {
   position: absolute;
   right: 10%;
   top: 5%;
+}
+
+
+.wave {
+  background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x; 
+  position: absolute;
+  background-size: contain;
+  top: -19px;
+  opacity: 1;
+  width: 6400px;
+  height: 20px;
+  animation: wave 17s cubic-bezier( 0.36, 0.45, 0.63, 0.53) infinite;
+  transform: translate3d(0, 0, 0);
+}
+
+@keyframes wave {
+  0% {
+    margin-left: 0;
+  }
+  100% {
+    margin-left: -1600px;
+  }
+}
+
+@keyframes swell {
+  0%, 100% {
+    transform: translate3d(0,-1px,0);
+  }
+  50% {
+    transform: translate3d(0,0.5px,0);
+  }
 }
