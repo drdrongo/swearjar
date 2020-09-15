@@ -1,30 +1,12 @@
 <div class="jar-container">
   <div class="jar">
-    <div class="jar jar-inner"
-      style="
-        background-color: grey;
-        background: url(https://images.unsplash.com/photo-1567427018369-9216e43df052?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1500&q=80);
-        background-position: 50%;
-        background-repeat: no-repeat;
-        background-size: 210%;
-      "
-    >
+    <div class="jar-lip"></div>
+    <div class="jar-neck"></div>
+    <div class="jar-neck-inner"></div>
+    <div class="jar jar-inner">
       <div class="jar-shine"></div>
-      <div class="jar-neck"></div>
-      <div class="jar-neck-inner"></div>
-      <div class="jar-lip"></div>
-      <% if false %>
-        <div class="jar-fill" style="
-          background-color: gold;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          height: <%= "#{(@jar.current_amount/@jar.end_amount.to_f) * 100}%" %>;
-          width: 100%;
-          border-bottom-left-radius: 80px;
-          border-bottom-right-radius: 80px;
-        "></div>
-      <% end %>
+      <div class="wave"></div>
+      <div class="jar-fill" style="height: <%= "#{(@jar.current_amount/@jar.end_amount.to_f) * 100}%" %>;">
     </div>
     <div class="label">
       <h6><%= @jar.goal %></h6>
@@ -33,57 +15,7 @@
   </div>
 </div>
 
-<style>
-  .coin-banner {
-    margin-top: 30px;
-    width: 100%;
-    background-color: lightpink;
-    padding: 16px 0;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    flex-grow: 0;
-  }
-
-  .coins {
-    width: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-around;
-  }
-
-  .coin {
-    background-color: silver;
-    border-radius: 50%;
-    height: 100px;
-    width: 100px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
-    border-style: none;
-  }
-
-  .coin-amount {
-    color: rgba(0, 0, 0, 0.6);
-    font-family: helvetica;
-    font-weight: bold;
-    font-size: 40px;
-  }
-
-  .coin:focus {
-    outline: none;
-  }
-
-  .coin:active {
-    box-shadow: 0px -3px 2px rgba(0, 0, 0, 0.5);
-    transform: translateY(1px);
-  }
-</style>
-
 <div class="coin-banner">
-
-
   <div class="coins">
     <% @coins.each do |coin| %>
       <%= form_for @jar, remote: true do |f| %>
