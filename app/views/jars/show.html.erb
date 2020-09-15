@@ -5,9 +5,9 @@
     <div class="jar-neck-inner"></div>
     <div class="jar jar-inner">
       <div class="jar-shine"></div>
-      <div class="wave"></div>
       <div class="jar-fill" style="height: <%= "#{(@jar.current_amount/@jar.end_amount.to_f) * 100}%" %>;">
-    </div>
+        <div class="wave"></div>
+      </div>
     <div class="label">
       <h6><%= @jar.goal %></h6>
       <h5><%= @jar.current_amount %> / <%= @jar.end_amount %></h5>

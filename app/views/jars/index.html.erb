@@ -1,3 +1,40 @@
-<% @jars.each do |jar| %>
-  <%= link_to jar.goal, jar_path(jar) %>
-<% end %>
+
+<div class="jar-card-container">
+  <% @jars.each do |jar| %>
+    <%= link_to jar_path(jar) do %>
+      <div class="jar-card">
+        <span><%= jar.goal %></span>
+        <div class="stacked-items" style="display: flex; flex-direction: column;">
+          <span><%= jar.current_amount %></span>
+          <span><%= jar.end_amount %></span>
+        </div>
+      </div>
+    <% end %>
+  <% end %>
+
+<style>
+  .new-jar {
+    position: sticky;
+    bottom: 32px;
+    height: 120px;
+    width: 120px;
+    border-radius: 50%;
+    background-color: white;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    left: 90%;
+  }
+
+  .new-jar span {
+    font-size: 1.3em;
+  }
+</style>
+
+  <%= link_to new_jar_path do %>
+    <div class="new-jar">
+      <span>+NEW</span>
+    </div>
+  <% end %>
+</div>
