@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  resources :jars, only: [:show, :index, :new, :create, :update]
-
+  root 'jars#index'
+  resources :jars, except: %i[destroy edit]
 end

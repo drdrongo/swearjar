@@ -21,7 +21,6 @@ class JarsController < ApplicationController
   def create
     @jar = Jar.new(jar_params)
 
-    
     @jar.user = current_user
     if @jar.save
       Coin.create(
