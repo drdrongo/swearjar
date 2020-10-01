@@ -1,11 +1,13 @@
 class JarsController < ApplicationController
+  before_action :authenticate_user!
+
   def show
     @jar = Jar.find(params[:id])
     @coins = Coin.where(jar: @jar)
   end
 
   def index
-    @jars = Jar.all
+    @jars = Jar.where(user: current_user)
   end
 
   def update
@@ -23,10 +25,7 @@ class JarsController < ApplicationController
 
     @jar.user = current_user
     if @jar.save
-      Coin.create(
-        value: 100,
-        jar: @jar
-      )
+      Coin.create(value: 100, jar: @jar)
       redirect_to jar_path(@jar)
     else
       render :new
